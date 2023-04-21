@@ -25,7 +25,7 @@ body {
 }
 .btn:hover {
   background: rgb(64, 163, 224);
-  box-shadow:  0 0 20px 10px hsl(240, 100%, 73%) hsl(240, 100%, 95%);
+  box-shadow:  0 0 20px 10px hsl(240, 100%, 73%) hsl(240, 63%, 63%);
 }
 .btn:hover::before {
   
@@ -33,8 +33,8 @@ body {
 }
 
 .form-input-material {
-  --input-default-border-color: hsl(0, 79%, 63%);
-  --input-border-bottom-color: hsl(0, 66%, 46%);
+  --input-default-border-color: hsl(217, 79%, 63%);
+  --input-border-bottom-color: hsl(217, 79%, 63%);
 }
 .form-input-material input {
   color: hsl(0, 0%, 96%);
