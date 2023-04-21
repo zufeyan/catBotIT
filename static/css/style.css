@@ -2,8 +2,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: 80vb;
   background: rgb(255, 255, 255);
+  font-family: 'Sen', sans-serif; 
 }
 
 .btn {
@@ -24,8 +25,7 @@ body {
   transition: 0.6s;
 }
 .btn:hover {
-  background: rgb(64, 163, 224);
-  box-shadow:  0 0 20px 10px hsl(240, 100%, 73%) hsl(240, 63%, 63%);
+  background: linear-gradient(#7C78D7, #07BCE5);
 }
 .btn:hover::before {
   
@@ -37,26 +37,26 @@ body {
   --input-border-bottom-color: hsl(217, 79%, 63%);
 }
 .form-input-material input {
-  color: hsl(0, 0%, 96%);
+  color: #07BCE5;
 }
 
 .login-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 50px 40px;
-  color: hsl(228, 81%, 68%);
-  background: rgba(252, 254, 255, 0.8);
+  align-items: left;
+  padding: 100px 80px;
+  color: #5C8BDB;
+  background: rgba(249, 243, 243, 0.8);
   border-radius: 10px;
-  box-shadow: 0 0.4px 0.4px rgba(111, 100, 255, 0.796), 0 1px 1px rgb(99, 203, 237), 0 2.1px 2.1px rgba(198, 15, 15, 0.195), 0 4.4px 4.4px rgba(128, 128, 128, 0.241), 0 12px 12px rgba(128, 128, 128, 0.35);
+  box-shadow: 0 0.4px 4px rgb(99, 203, 237), 0px 1px 1px rgba(99, 202, 237, 0.521), 0 2.1px 3px rgba(66, 226, 247, 0.477), 0 4.4px 4.4px rgba(118, 177, 249, 0.725), 0 12px 12px rgb(99, 203, 237);
 }
 .login-form h1 {
-  margin: 0 0 24px 0;
+  margin: 0 0 45px 0;
 }
 .login-form .form-input-material {
   margin: 12px 0;
 }
 .login-form .btn {
   width: 100%;
-  margin: 18px 0 9px 0;
+  margin: 15px 0 50px 0;
 }
