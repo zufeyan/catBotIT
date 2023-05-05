@@ -20,8 +20,7 @@ def Index():
     data = cur.fetchall()
     cur.close()
 
-    return render_template('index.html', students=data)
-
+    return render_template('index.html', students=data)   
 
 @app.route('/insert', methods = ['POST'])
 def insert():
@@ -60,8 +59,25 @@ def update():
         cur.close()
 
         return redirect(url_for('Index'))
+    
+    
+@app.route('/user')
+def user():
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM user")
+    data = cur.fetchall()
+    cur.close()
+    return render_template('index.html', user=data) 
 
+
+    
+
+
+ 
 
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+
