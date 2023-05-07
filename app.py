@@ -69,6 +69,10 @@ def user():
     cur.close()
     return render_template('index.html', user=data) 
 
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
 
     
 
