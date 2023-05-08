@@ -85,9 +85,7 @@
                                         </li>
 
                                  </ul>
-                                 <button id="logout-button" enable>
-                                        Logout
-                                      </button>                        </div>
+                      </div>
                 </div>
 
         </div>
@@ -116,7 +114,7 @@
                                 </div>
 
                                 <div class="col-sm-8">
-                                        <h2 > รายการ <button class="btn btn-outline-primary float-right" data-toggle="modal" data-target="#myModal">เพิ่มคำพูด</button></h2>
+                                        <h2 > รายการ <button class="btn btn-primary float-right" data-toggle="modal" data-target="#myModal">Add</button></h2>
                                 </div>   
                                 
 
@@ -208,7 +206,7 @@
                                                     <div class="modal-content">
                                            
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title text-primary" style="align-content: center;">เพิ่มข้อมูลบทพูด</h5>    
+                                                            <h5 class="modal-title text-primary" style="align-content: center;">ADD</h5>    
                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                               <span aria-hidden="true">&times;</span>
                                                             </button>
@@ -218,17 +216,17 @@
                     
                         <form action="{{ url_for('insert')}}" method="POST">
                             <div class="form-group">
-                              <label>ลำดับ</label>
+                              <label>ID</label>
                               <input type="number" name="name" class="form-control" id="exampleFormControlInput1" placeholder="กรอกลำดับ">
                             </div>
     
                             <div class="form-group">
-                                <label>บทพูด1</label>
+                                <label>Name</label>
                                 <input type="text" name="email" class="form-control" id="exampleFormControlInput1" placeholder="กรอกบทพูด">
                             </div>
     
                             <div class="form-group">
-                                <label>บทพูด2</label>
+                                <label>Depart</label>
                                 <input name="phone" type="text" class="form-control" id="exampleFormControlInput1" placeholder="กรอกบทพูด">
                               </div>
     
