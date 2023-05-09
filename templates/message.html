@@ -1,0 +1,141 @@
+{% extends "layout.html"%}
+
+
+{%block content%}
+<main>
+
+  <div class="page-header">
+    
+   
+      <ol class="barbody">
+        <li><a href=""><i class="fa-solid fa-house-chimney"></i> หน้าแรก </a></li>
+        <li style="margin: 0px 8px 0px 8px; color: white;" > / </li>
+        <li><a href="" ><i class="fa-solid fa-comment-dots"></i> จัดการข้อความ </a></li>
+      </ol>
+      
+      
+   <!-- แจ้งเตือนข้อความ -->
+    
+
+</div>
+<button class="btn btn-outline-primary float-right" data-toggle="modal" data-target="#myModal">เพิ่มข้อความ</button>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ลำดับที่</th>
+        <th>คำถาม</th>
+        <th>คำตอบ</th>
+        <th style="text-align: center;">จัดการ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+
+            <div class="modal-header">
+              <h5 class="modal-title text-primary" style="align-content: center;">
+                เพิ่มข้อข้อความ</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <div class="modal-body">
+
+              <form action="{{ url_for('insert')}}" method="POST">
+                <div class="form-group">
+                  <label>คำถาม</label>
+                  <input type="text" name="question" class="form-control" id="exampleFormControlInput1"
+                    placeholder="กรอกคำถาม">
+                </div>
+
+                <div class="form-group">
+                  <label>คำตอบ</label>
+                  <input type="text" name="answer" class="form-control" id="exampleFormControlInput1"
+                    placeholder="กรอกคำตอบ">
+                </div>
+
+
+                <br>
+                <button type="submit" class="btn btn-primary mb-2">บันทึก</button>
+
+              </form>
+
+
+            </div>
+          </div>
+        </div>
+
+        {% for row in data %}
+
+        <tr>
+          <td>{{row.0}}</td>
+          <td>{{row.1}}</td>
+          <td>{{row.2}}</td>
+
+          <td style="text-align: center;">
+
+            <a href="/delete/{{ row.0 }}" onclick="return confirm('แน่ใจหรอที่จะลบ ?')"
+              class="btn btn-danger btn-sm">ลบ</a>
+              <a href="/update/{{row.0}}" class="btn btn-warning btn-sm" data-toggle="modal"
+              data-target="#modaledit{{row.0}}">แก้ใข</a>
+          </td>
+        </tr>
+        <div id="modaledit{{row.0}}" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+
+              <div class="modal-header">
+                <h5 class="modal-title text-primary" style="align-content: center;">
+                  แก้ใขข้อมูล
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-body">
+                <form action="/update" method="POST">
+                  
+                  <div class="form-group">
+                    <label>คำถาม</label>
+                    <input type="hidden" name="id" value="{{row.0}}">
+                    <input value="{{row.1}}" type="text" name="question" class="form-control"
+                      id="exampleFormControlInput1" placeholder="กรอกลำดับ">
+                  </div>
+
+                  <div class="form-group">
+                    <label>คำตอบ</label>
+                    <input value="{{row.2}}" type="text" name="answer" class="form-control" id="exampleFormControlInput1"
+                      placeholder="กรอกบทพูด">
+                  </div>
+                  <br>
+                  <button type="submit" class="btn btn-success mb-2">บันทึก</button>
+
+                </form>
+
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+
+        {% endfor %}
+
+
+
+    </tbody>
+
+  </table>
+
+
+</main>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+  integrity="sha384-LjzLs/zaSq/6LrZeDhKj9rT/gTQeYnWjwz/FfZ6x42U6bn8U6bJmzMj9h9bPdnn" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
+{%endblock%}
