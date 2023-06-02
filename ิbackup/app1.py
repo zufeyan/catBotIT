@@ -24,21 +24,19 @@ app.config['MYSQL_DB'] = 'crud'
 
 
 
-#---หน้าแรก
+
 mysql = MySQL(app)
 @app.route('/')
 def log():
     return render_template('login.html')
-
-#--หน้าหลัก
 
 @app.route('/index')
 def index():
     return render_template('index.html')
 
 
-# ส่งข้อความแจ้งเตือน-------------------------
-
+#-------------------------
+# ...
 @app.route('/news')
 def news():
     return render_template('news.html')
@@ -49,12 +47,14 @@ def send_message():
         return render_template('send_message.html')
     elif request.method == 'POST':
         message = request.form['message']
-        user_id = 'U0981fd876bec87061f191e150ee1ecbb'
 
         # ส่งข้อความไปยัง LINE Chatbot
-        line_bot_api.push_message(user_id, TextSendMessage(text=message))
+        line_bot_api.push_message('U0981fd876bec87061f191e150ee1ecbb', TextSendMessage(text=message))
 
-        return redirect(url_for('index'))
+        return render_template('news.html')
+
+# ...
+
 
 
 # webhook ---------------------------------------------------
@@ -70,7 +70,7 @@ def callback():
     except InvalidSignatureError:
         abort(400)
 
-#-ข้อความตอบกลับ
+#-reply
 @handler.add(MessageEvent, message=TextMessage)
 def handle_text_message(event):
     question = event.message.text
@@ -96,7 +96,7 @@ def handle_text_message(event):
 
 
 
-#REGISTER  เพิ่มuser
+#REGISTER
 
 @app.route('/register', methods= ["GET","POST"])
 def register():
@@ -141,9 +141,8 @@ def register():
 #         return render_template('login.html')
     
 
-
-
 # LOGIN ด้วย user
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

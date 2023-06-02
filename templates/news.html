@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@200;300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../static/css/font.css">
+        <title>ประกาศ</title>
+
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+          <div class="col-md-8 offset-md-2">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="mb-0">ประกาศ</h3>
+              </div>
+              <div class="card-body">
+                <form method="POST" action="/send_message">
+                  <div class="form-group">
+                    <textarea type="text" name="message" id="message" class="form-control no-resize" required placeholder="ป้อนข้อความ"></textarea>
+                  </div>
+                  <div class="form-group text-left">
+                    <button type="submit" class="btn btn-primary">ยืนยัน</button>
+                    <a href="{{ url_for('index') }}" class="btn btn-secondary">ยกเลิก</a>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        var textarea = document.getElementById('message');
+        textarea.addEventListener('input', function() {
+          this.style.height = 'auto';
+          this.style.height = this.scrollHeight + 'px';
+        });
+      </script>
+      
+</body>
+</html>
+
+
+<!-- <body>
+    <h1>ส่งข้อความไปยัง LINE Chatbot</h1>
+    <form method="POST" action="/send_message">
+        <label for="message">ข้อความ:</label>
+        <input type="text" name="message" id="message" required>
+        <br><br>
+        <input type="submit" value="ส่ง">
+    </form>
+</body>
+</html> -->

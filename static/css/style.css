@@ -53,7 +53,7 @@ body{
         height: 100%;
         padding: 1rem .9rem;
         background: linear-gradient(to right, #54000f,#bb0309db );
-        box-shadow:  4px 4px 10px rgba(0, 0, 0, 0.405);
+        box-shadow:  4px 4px 10px rgba(0, 0, 0, 0.340);
         color: #fff;
         z-index: 20;
         transition: left 300ms;
@@ -127,6 +127,13 @@ body{
         display: inline-block;
         margin-right: 1rem;
 }
+.sidebar-menu ul :hover{
+        color: rgb(193, 113, 113);
+}
+.sidebar-menu UL.active{
+        color: rgb(113, 193, 148);
+}
+
 
 .menu-toggle span{
         color: white;
@@ -143,9 +150,8 @@ header {
         width: calc(100% - 280px);
         top :0;
         z-index: 20;
-  
     background: linear-gradient(to right, #c30006, #54000f);
-        box-shadow:  4px 4px 10px rgba(0, 0, 0, 0.217);
+        box-shadow:  4px 4px 10px rgba(0, 0, 0, 0.350);
         transition: left 300ms ;
 }
 
@@ -172,21 +178,26 @@ header-icons span {
         margin-left: 280px;
         transition: margin-left 300ms ;
 }
-
+/* ----------------------------------------------------------------- */
 main {
         padding: 1.5rem;
-        background: #f1f5f937;
-        min-height: calc(100vh - 70px);
-        margin-top: 70px;
+        background: #a4a4a537;
+        min-height: calc(100vh - 65px);
+        margin-top: 60px;
+
 }
 .barbody a{
         font-size: 18px;
+}
+.barbody a:hover{
+        color: #edebeb;
 }
 .barbody{
         padding-top: 7px;
         padding-bottom: 7px;
         display: flex;
-        box-shadow: 0 2px 1px rgba(0, 0, 0, 0.312);
+        border-radius: 3px;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.230);
 }
 
 .page-header {
@@ -216,23 +227,28 @@ main {
 }
 
 .header-icons i{
-        color: #fefefe;
+        font-size: 16px;
+        color: #f5f4f4;
         margin-top: 5px;
 }
 
 .header-icons a{
-        color: #efeded;
+        font-size: 19px;
+        color: #fcfcfc;
         text-decoration: none;     
         
 }
 
 .header-icons a:hover{
-        color: #9a9a9a;
+        color: #d3cece;
         display: inline;
 }
 .header-icons i:hover{
-        color: #bbbbbb;
+        color: #d3cece;
+        display: inline;
 }
+/* icon */
+
 
 
 .cards {
@@ -247,8 +263,8 @@ main {
 .card-single {
         background: #fff;
         padding: 1rem;
-        box-shadow:  4px 4px 10px rgba(0, 0, 0, 0.1);
-        border-radius: 2px;
+        box-shadow:  4px 4px 10px rgba(0, 0, 0, 0.051);
+        border-radius: 4px;
 }
 
 .card-flex {
@@ -278,11 +294,11 @@ main {
 }
 
 .card-chart.sucess span {
-        color: seagreen;
+        color: rgba(65, 119, 72, 0.902);
 }
 
 .card-chart.danger span {
-        color: tomato;
+        color: rgba(255, 99, 71, 0.862);
 }
 
 .card-chart.yello span {
@@ -395,6 +411,7 @@ main {
         color: #fff;
         transition: 0.5rem;
       }
+
 
      
 

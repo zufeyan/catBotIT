@@ -1,12 +1,13 @@
 {% extends "layout.html"%} {%block content%}
 
+
 <main>
   <div class="page-header">
    
     <ol class="barbody">
-      <li><a href=""><i class="fa-solid fa-house-chimney"></i> หน้าแรก </a></li>
+      <li><a href="/index"><i class="fa-solid fa-house-chimney"></i> หน้าแรก </a></li>
       <li style="margin: 0px 8px 0px 8px; color: white;" > / </li>
-      <li><a href="" ><i class="fa-solid fa-comment-dots"></i> จัดการสมาชิก </a></li>
+      <li><a href="" ><i class="fa-solid fa-user"></i> จัดการสมาชิก </a></li>
     </ol>
     
     
@@ -15,7 +16,7 @@
 
 </div>
 
-  <a href="/register" class="btn btn-outline-primary float-right">ADD USER</a>
+  <a href="/register" class="btn btn-primary float-right">เพิ่มบัญชีผู้ใช้</a>
   
 
   <!-- XX -->
@@ -23,11 +24,11 @@
   <table class="table">
     <thead>
       <tr>
-        <th>ID</th>
-        <th>Username</th>
-        <th>Email</th>
-        <th>Password</th>
-        <th>Action</th>
+        <th>ลำดับที่</th>
+        <th>ชื่อผู้ใช้</th>
+        <th>อีเมล</th>
+        <th>รหัสผ่าน</th>
+        <th>จัดการ</th>
 
       </tr>
     </thead>
@@ -39,52 +40,55 @@
         <td>{{row.3}}</td>
         <td><a href="/delete_user/{{ row.0 }}" onclick="return confirm('แน่ใจหรอที่จะลบ ?')"
           class="btn btn-danger btn-sm">ลบ</a>
-          <a href="/update_user/{{row.0}}" class="btn btn-warning btn-sm" data-toggle="modal"
-          data-target="#modaledit{{row.0}}">แก้ใข</a></td>
+          <a href="/update_user/{{ row.0 }}" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modaledit{{row.0}}">แก้ไข้</a>
         </tr>
-        <!-- <div id="modaledit{{row.0}}" class="modal fade" role="dialog">
+        <div id="modaledit{{row.0}}" class="modal fade" role="dialog">
           <div class="modal-dialog">
             <div class="modal-content">
-
+              
               <div class="modal-header">
-                <h5 class="modal-title text-primary" style="align-content: center;">
-                  แก้ใขข้อมูล
-                </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
+            
+                <h4 class="modal-title"  style="align-content: center;">อัพเดทข้อมูล</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
               </div>
-
               <div class="modal-body">
                 <form action="/update_user" method="POST">
-                  
                   <div class="form-group">
-                    <label>คำถาม</label>
+                    <label>ชื่อผู้ใช้:</label>
                     <input type="hidden" name="id" value="{{row.0}}">
-                    <input value="{{row.1}}" type="text" name="name" class="form-control"
-                      id="exampleFormControlInput1" placeholder="กรอกลำดับ">
+                    <input type="text" class="form-control" name="name" value="{{row.1}}">
                   </div>
-
                   <div class="form-group">
-                    <label>คำตอบ</label>
-                    <input value="{{row.2}}" type="password" name="password" class="form-control" id="exampleFormControlInput1"
-                      placeholder="กรอกบทพูด">
+                    <label>อีเมล:</label>
+                    <input type="text" class="form-control" name="email" value="{{row.2}}">
+                  </div>
+                  <div class="form-group">
+                    <label>รหัสผ่าน:</label>
+                    <input type="text" class="form-control" name="password" value="{{row.3}}">
                   </div>
                   <br>
-                  <button type="submit" class="btn btn-success mb-2">บันทึก</button>
-
+                  <div class="form-group">
+                    <button class="btn btn-primary" type="submit">บันทึก</button>
+                  </div>
                 </form>
-
-
               </div>
+                </form>
+              <!-- ปุ่มยกเลิก -->
+              <!-- <div class="modal-footer">
+                
+                <button type="button"  class="btn btn-default" data-dismiss="modal" >Close</button>
+              </div> -->
             </div>
           </div>
-
-        </div> -->
+          </div>
       {%endfor%}
     </tbody>
   </table>
 
   <!--  -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+  integrity="sha384-LjzLs/zaSq/6LrZeDhKj9rT/gTQeYnWjwz/FfZ6x42U6bn8U6bJmzMj9h9bPdnn" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
 </main>
 {%endblock%}

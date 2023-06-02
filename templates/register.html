@@ -5,8 +5,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-                <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@200;300&display=swap" rel="stylesheet">
-        <title>Document</title>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@200;300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../static/css/font.css">
+        <title>เพิ่มสมาชิก</title>
 </head>
 <body>
   <div class="container mt-5">
@@ -14,26 +15,26 @@
       <div class="col-md-8 offset-md-2">
         <div class="card">
           <div class="card-header">
-            <h3 class="mb-0"></h3>เพิ่มสมาชิก
+            <h3 class="mb-0">เพิ่มสมาชิก</h3>
           </div>
           <div class="card-body">
             <form method="POST" action="{{ url_for('register') }}">
               <div class="form-group">
-                <label for="name">Username:</label>
+                <label for="name">ชื่อผู้ใช้:</label>
                 <input type="hidden" name="id" class="form-control" required>
-                <input type="text" name="name" class="form-control" required placeholder="username" >
+                <input type="text" name="name" class="form-control" required placeholder="ป้อนชื่อผู้ใช้ของคุณ" >
               </div>
               <div class="form-group">
-                <label for="response">Email:</label>
-                <input  type="email" name="email" class="form-control" rows="5" required placeholder="email"></input>
+                <label for="response">อีเมล:</label>
+                <input  type="email" name="email" class="form-control" rows="5" required placeholder="ป้อนอีเมลของคุณ"></input>
               </div>
               <div class="form-group">
-                <label for="response">Password:</label>
-                <input  type="password" name="password" class="form-control" rows="5" required placeholder="password"></input>
+                <label for="response">รหัสผ่าน:</label>
+                <input  type="password" name="password" class="form-control" rows="5" required placeholder="ป้อนรหัสผ่านของคุณ"></input>
               </div>
-              <div class="form-group text-center">
-                <button type="submit" class="btn btn-primary"> Add</button>
-                <a href="{{ url_for('user') }}" class="btn btn-secondary">Cancel</a>
+              <div class="form-group text-left">
+                <button type="submit" class="btn btn-primary">ยืนยัน</button>
+                <a href="{{ url_for('user') }}" class="btn btn-secondary">ยกเลิก</a>
               </div>
             </form>
           </div>
